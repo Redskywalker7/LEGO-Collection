@@ -60,7 +60,7 @@ def Dollar_Format(x):
   return "${:,.2f}".format(x)
 
 def main():
-    st.sidebar.image('Character Pictures/sw0833.jpg', use_column_width=True)
+    st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.plotly_chart(Table_Sets, use_container_width=True)
 
     
