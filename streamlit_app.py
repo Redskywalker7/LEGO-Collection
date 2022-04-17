@@ -1,34 +1,32 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[35]:
+# In[44]:
 
 
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
 import dash
-import streamlit as st
 from dash import dcc
 from dash import html
 import plotly.express as px
 import plotly.graph_objects as go
-from datetime import datetime, timedelta, date
+import streamlit as st
+#from datetime import datetime, timedelta, date
 
 
-# In[36]:
+# In[45]:
 
 
 Sets = pd.read_csv("LEGO Sets.csv")
 
 
-# In[37]:
+# In[46]:
 
 
 Sets.head(5)
 
 
-# In[38]:
+# In[47]:
 
 
 Table_Sets = go.Figure(data=[go.Table(
@@ -47,20 +45,28 @@ Table_Sets.update_layout(margin = dict(l=30,r=10,b=40,t=20))
 #Table_Sold.show()
 
 
-# In[43]:
+# In[49]:
 
 
 # Streamlit Setup
 st.set_page_config(
-    #page_title="BPJV SI Database Manager test",
+    page_title="LEGO Star Wars",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 def Dollar_Format(x):
   return "${:,.2f}".format(x)
 
 def main():
+    container1 = st.container()
+    col1, col2 = st.columns([1,3])
+    with container1:
+        with col1:
+            st.image('logo.png')
+        with col2:
+            st.title("LEGO Star Wars Analysis")
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
+    st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
     st.plotly_chart(Table_Sets, use_container_width=True)
 
     
