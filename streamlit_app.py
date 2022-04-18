@@ -70,14 +70,16 @@ def Dollar_Format(x):
 def main():
 
     container1 = st.container()
-    col1, col2, col3 = st.columns([3,9,1])
+    col1, col2, col3, col4 = st.columns([3,9,1,1])
     with container1:
         with col1:
-            st.image('logo.png')
+            st.image('LEGO logo.png')
         with col2:
-            st.title("LEGO Star Wars Analysis")
+            st.title("LEGO Analysis")
         with col3:
             st.image('Aayla.png')  
+        with col4:
+            st.image('Pirate.png')
             
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
