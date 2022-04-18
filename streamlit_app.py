@@ -73,9 +73,9 @@ def main():
     col1, col2, col3 = st.columns([3,9,1])
     with container1:
         with col1:
-            st.image('LEGO Logo.png')
+            st.image('logo.png')
         with col2:
-            st.title("LEGO Analysis")
+            st.title("LEGO Star Wars Analysis")
         with col3:
             st.image('Aayla.png')  
             
