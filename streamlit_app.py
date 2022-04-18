@@ -28,7 +28,7 @@ Sets.head(5)
 
 # In[47]:
 
-
+# Main Set List Table
 Table_Sets = go.Figure(data=[go.Table(
     columnwidth = [15,35,25,10,10,15],
     header=dict(values=("<b>Set Number</b>","<b>Set Name</b>","<b>Theme</b>","<b>Type</b>","<b>Acquisition</b>","<b>State</b>"),
@@ -40,9 +40,19 @@ Table_Sets = go.Figure(data=[go.Table(
 ])
 
 Table_Sets.update_layout(margin = dict(l=30,r=10,b=40,t=20))
-
-
 #Table_Sold.show()
+
+# Pie Chart of New/Sealed Sets
+State_Pie = px.pie(Sets, 
+                     values='State', 
+                     names=Sources_Count.index,
+                     #color_discrete_sequence = colours,
+                     labels={'State':'Condition of Set'})
+             #hover_data=['lifeExp'], )
+State_Pie.update_traces(textposition='inside', textinfo='percent+label')
+
+State_Pie.update_layout(title_text='Set Conditions', title_x=0.488)
+#Pie_Sources.show()
 
 
 # In[49]:
@@ -59,8 +69,15 @@ def Dollar_Format(x):
 
 def main():
     container1 = st.container()
-    col1, col2 = st.columns([1,3])
+    col1 = st.columns(1)
     with container1:
+        with col1:
+            st.plotly_chart(State_Pie, use_container_width=True)
+
+
+    container2 = st.container()
+    col1, col2 = st.columns([1,3])
+    with container2:
         with col1:
             st.image('logo.png')
         with col2:
