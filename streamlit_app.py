@@ -77,7 +77,7 @@ def main():
         with col2:
             st.title("LEGO Star Wars Analysis")
         with col3:
-            st.image('Jango.png')  
+            st.image('Aayla.png')  
             
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
