@@ -69,10 +69,12 @@ def Dollar_Format(x):
 
 def main():
     container1 = st.container()
-    col1 = st.columns(1)
+    col1, col2 = st.columns(2)
     with container1:
         with col1:
             st.plotly_chart(State_Pie, use_container_width=True)
+        with col2:
+            st.image('logo.png')
 
 
     container2 = st.container()
