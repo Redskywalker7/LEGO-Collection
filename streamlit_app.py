@@ -70,7 +70,7 @@ def Dollar_Format(x):
 def main():
 
     container1 = st.container()
-    col1, col2, col3 = st.columns([2,6,1])
+    col1, col2, col3 = st.columns([3,9,1])
     with container1:
         with col1:
             st.image('logo.png')
