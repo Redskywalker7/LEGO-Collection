@@ -45,7 +45,7 @@ Table_Sets.update_layout(margin = dict(l=30,r=10,b=40,t=20))
 # Pie Chart of New/Sealed Sets
 State_Pie = px.pie(Sets, 
                      values='State', 
-                     names=Sources_Count.index,
+                     #names=Sources_Count.index,
                      #color_discrete_sequence = colours,
                      labels={'State':'Condition of Set'})
              #hover_data=['lifeExp'], )
