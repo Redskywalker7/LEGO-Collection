@@ -68,22 +68,17 @@ def Dollar_Format(x):
   return "${:,.2f}".format(x)
 
 def main():
+
     container1 = st.container()
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns([1,3,1])
     with container1:
-        with col1:
-            st.plotly_chart(State_Pie, use_container_width=True)
-        with col2:
-            st.image('logo.png')
-
-
-    container2 = st.container()
-    col1, col2 = st.columns([1,3])
-    with container2:
         with col1:
             st.image('logo.png')
         with col2:
             st.title("LEGO Star Wars Analysis")
+        with col3:
+            st.image('Stormtrooper.png')  
+            
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
     st.plotly_chart(Table_Sets, use_container_width=True)
