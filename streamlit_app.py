@@ -73,7 +73,7 @@ def main():
     col1, col2, col3 = st.columns([3,9,1])
     with container1:
         with col1:
-            st.image('LEGO Logo.png',width=100)
+            st.image('LEGO Logo.png',width=200)
         with col2:
             st.title("LEGO Analysis")
         with col3:
