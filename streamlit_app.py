@@ -89,11 +89,11 @@ def main():
     col1, col2, col3 = st.columns([5,15,2])
     with container1:
         with col1:
-            st.image('logo.png')
+            st.image('Rebrickable/logo.png')
         with col2:
             st.title("LEGO Star Wars Minifigure Analysis")
         with col3:
-            st.image('Aayla.png')  
+            st.image('Rebrickable/Aayla.png')  
     
     container2 = st.container()
     col1, col2 = st.columns([1,1])
@@ -108,7 +108,7 @@ def main():
     col1, col2, col3= st.columns([1,2,2])
     with container3:
         with col1:
-            st.image("Obiwan.png",width = 200)
+            st.image("Rebrickable/Obiwan.png",width = 200)
         with col2:
             st.plotly_chart(Movies_CHART, use_container_width=True)
         with col3:
