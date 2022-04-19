@@ -17,6 +17,7 @@ def Dollar_Format(x):
 colours = ( "cadetblue", "turquoise", "skyblue",
           "lightsteelblue","azure","teal")
 #def FilterMovie(option):
+option = "All Movies"
 if(option != 'All Movies'):
     Filtered = SW_Minifigs[SW_Minifigs['SubTheme'] == option]
     SW_Minifigs_TABLE = go.Figure(data=[go.Table(
