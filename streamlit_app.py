@@ -23,6 +23,7 @@ my_sets = pd.read_csv("Rebrickable/My_Collection.csv")
 my_minifigs = pd.read_csv("Rebrickable/My Minifigs.csv")
 minifigs = pd.read_csv("Rebrickable/minifigs.csv")
 Wishlist = pd.read_csv("Rebrickable/Minifig Wishlist.csv")
+Star_Wars = Sets[Sets.Theme == 'Star Wars']
 
 #CALCULATIONS
 Wishlist_Value = Wishlist['Brickeconomy Value'].sum()
@@ -34,7 +35,7 @@ Table_Sets = go.Figure(data=[go.Table(
     header=dict(values=("<b>Set Number</b>","<b>Set Name</b>","<b>Theme</b>","<b>Type</b>","<b>Acquisition</b>","<b>State</b>"),
                 #fill_color=colours[0],
                 align='center'),
-    cells=dict(values=[Sets['Set Number'],Sets['Set Name'],Sets['Theme'],Sets['Type'],Sets.Acquisition, Sets['State']],
+    cells=dict(values=[Star_Wars['Set Number'],Star_Wars['Set Name'],Star_Wars['Theme'],Star_Wars['Type'],Star_Wars.Acquisition, Star_Wars['State']],
                #fill_color=colours[1],
                align=['center','left','center','center','center','center']))
 ])
@@ -70,7 +71,7 @@ def main():
         with col1:
             st.image('logo.png')
         with col2:
-            st.title("LEGO Star Wars Analysis")
+            st.title("LEGO Star Wars Minifigure Analysis")
         with col3:
             st.image('Aayla.png')  
     
@@ -83,7 +84,7 @@ def main():
             st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
     
     container3 = st.container()
-    col1, col2, col3= st.columns([1,1,1])
+    col1, col2, col3= st.columns([1,1,2])
     with container3:
         with col1:
             st.image("Obiwan.png",width = 200)
