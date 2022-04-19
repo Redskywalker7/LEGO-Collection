@@ -32,6 +32,17 @@ def FilterMovie(option):
         )
         return SW_Minifigs_TABLE
     else:
+        SW_Minifigs_TABLE = go.Figure(data=[go.Table(
+            columnwidth = [1,3,2],
+            header=dict(values=("<b>Set Number</b>","<b>Character</b>","<b>Movie</b>"),
+                        align='center'),
+            cells=dict(values=[SW_Minifigs['Set Number'],SW_Minifigs['Name'],SW_Minifigs['SubTheme']],
+                       align='center')
+        )])
+        SW_Minifigs_TABLE.update_layout(
+            title_text="Current LEGO Star Wars Minifigure Collection",
+            title_x=0.5
+        )
         return SW_Minifigs_TABLE
     
 
