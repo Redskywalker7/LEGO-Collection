@@ -112,7 +112,7 @@ def main():
         with col1:
             st.image("Obiwan.png",width = 200)
         with col2:
-            st.plotly_chart(Movie_CHART, use_container_width=True)
+            st.plotly_chart(Movies_CHART, use_container_width=True)
         with col3:
             st.plotly_chart(Wishlist_TABLE, use_container_width=True)
     st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
