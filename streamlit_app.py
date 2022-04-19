@@ -131,7 +131,7 @@ def main():
     col1, col2 = st.columns([1,2])
     with container4:
         with col1:
-            option = st.selectbox("Select Movie",thing = ['All Movies',Movies.index.tolist()])
+            option = st.selectbox("Select Movie",['All Movies',Movies.index.tolist()])
         with col2:
             st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
 
