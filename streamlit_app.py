@@ -44,6 +44,17 @@ Table_Sets = go.Figure(data=[go.Table(
                #fill_color=colours[1],
                align=['center','left','center','center','center','center']))
 ])
+# Wishlist Table
+Wishlist_TABLE = go.Figure(data=[go.Table(
+    columnwidth = [3,1],
+    header=dict(values=("<b>Character</b>","<b>Brickeconomy Value</b>"),
+                #fill_color=colours[0],
+                align='center'),
+    cells=dict(values=[Wishlist['Name'],Wishlist['Brickeconomy Value']],
+               #fill_color=colours[1],
+               align=['center']))
+])
+
 
 Table_Sets.update_layout(margin = dict(l=30,r=10,b=40,t=20))
 #Table_Sold.show()
@@ -91,7 +102,7 @@ def main():
         with col1:
             st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
         with col2:
-            st.image('logo.png')
+            st.plotly_chart(Wishlist_TABLE, use_container_width=True)
             
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
