@@ -60,10 +60,10 @@ Wishlist_TABLE.update_layout(
 
 # Owned Minifigures Table
 SW_Minifigs_TABLE = go.Figure(data=[go.Table(
-    columnwidth = [3,1],
-    header=dict(values=("<b>Character</b>","<b>Set Number</b>"),
+    columnwidth = [1,3,2],
+    header=dict(values=("<b>Set Number</b>","<b>Character</b>","<b>Movie</b>"),
                 align='center'),
-    cells=dict(values=[SW_Minifigs['Name'],SW_Minifigs['Set Number']],
+    cells=dict(values=[SW_Minifigs['Set Number'],SW_Minifigs['Name'],SW_Minifigs['SubTheme']],
                align='center')
 )])
 SW_Minifigs_TABLE.update_layout(
