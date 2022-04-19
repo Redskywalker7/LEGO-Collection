@@ -52,12 +52,12 @@ Wishlist_TABLE = go.Figure(data=[go.Table(
 ])
 # Owned Minifigures Table
 SW_Minifigs_TABLE = go.Figure(data=[go.Table(
-    #columnwidth = [3,1],
-    header=dict(values=("<b>Character</b>"),
+    columnwidth = 1,
+    header=dict(values=("<b>Character</b>","<b>Set Number</b>"),
                 align='center'),
-    cells=dict(values=SW_Minifigs['Name'],
+    cells=dict(values=[SW_Minifigs['Name'],SW_Minifigs['Set Number']],
                align='center')
-])
+)])
 
 #CHARTS
 
