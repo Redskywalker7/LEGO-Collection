@@ -90,7 +90,7 @@ def main():
         with col1:
             st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
         with col2:
-            st.metric(label="Value of Wishlist",value=len(my_minifigs))
+            st.metric(label="Collection Count",value=len(my_minifigs))
     
     container3 = st.container()
     col1, col2, col3= st.columns([1,1,2])
