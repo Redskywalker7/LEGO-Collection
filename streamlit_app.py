@@ -14,8 +14,8 @@ import streamlit as st
 # FUNCTIONS
 def Dollar_Format(x):
   return "${:,.2f}".format(x)
-colours = ( "greenyellow", "turquoise", "skyblue",
-          "palegreen","azure","teal")
+colours = ( "cadetblue", "turquoise", "skyblue",
+          "lightsteelblue","azure","teal")
 
 # DATAFRAMES
 Sets = pd.read_csv("LEGO Sets.csv")
