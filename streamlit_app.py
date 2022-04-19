@@ -133,7 +133,7 @@ def main():
         with col1:
             option = st.selectbox("Select Movie",Movies.index.tolist())
         with col2:
-            st.plotly_chart(SW_Minifigs_TABLE[SW_Minifigs_TABLE.SubTheme == option], use_container_width=True)
+            st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
 
     
 if __name__ == "__main__":
