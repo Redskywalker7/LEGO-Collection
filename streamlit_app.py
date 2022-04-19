@@ -56,6 +56,7 @@ Wishlist_TABLE = go.Figure(data=[go.Table(
 ])
 Wishlist_TABLE.update_layout(
     title_text="LEGO Star Wars Minifigure Wishlist",
+    align = "center"
 )
 
 # Owned Minifigures Table
