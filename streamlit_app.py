@@ -32,9 +32,6 @@ minifigs = pd.read_csv("Rebrickable/minifigs.csv")
 
 Wishlist_Value = Wishlist['Brickeconomy Value'].sum()
 
-Sets.head(5)
-
-
 # In[47]:
 
 # Main Set List Table
