@@ -54,6 +54,10 @@ Wishlist_TABLE = go.Figure(data=[go.Table(
                #fill_color=colours[1],
                align=['center']))
 ])
+Wishlist_TABLE.update_layout(
+    title_text="LEGO Star Wars Minifigure Wishlist",
+)
+
 # Owned Minifigures Table
 SW_Minifigs_TABLE = go.Figure(data=[go.Table(
     columnwidth = 1,
@@ -62,6 +66,9 @@ SW_Minifigs_TABLE = go.Figure(data=[go.Table(
     cells=dict(values=[SW_Minifigs['Name'],SW_Minifigs['Set Number']],
                align='center')
 )])
+SW_Minifigs_TABLE.update_layout(
+    title_text="Current LEGO Star Wars Minifigure Collection",
+)
 
 #CHARTS
 Movies_CHART = px.pie(Movies, 
