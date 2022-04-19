@@ -14,6 +14,8 @@ import streamlit as st
 # FUNCTIONS
 def Dollar_Format(x):
   return "${:,.2f}".format(x)
+colours = ( "greenyellow", "turquoise", "skyblue",
+          "palegreen","azure","teal")
 
 # DATAFRAMES
 Sets = pd.read_csv("LEGO Sets.csv")
@@ -26,8 +28,10 @@ Wishlist = pd.read_csv("Rebrickable/Minifig Wishlist.csv")
 Star_Wars = Sets[Sets.Theme == 'Star Wars']
 SW_Minifigs = my_minifigs[my_minifigs.Theme == 'Star Wars']
 
+
 #CALCULATIONS
 Wishlist_Value = Wishlist['Brickeconomy Value'].sum()
+Movies = pd.DataFrame(my_minifigs['SubTheme'].value_counts())
 
 #TABLES
 # Main Set List Table
@@ -60,7 +64,16 @@ SW_Minifigs_TABLE = go.Figure(data=[go.Table(
 )])
 
 #CHARTS
+Movies_CHART = px.pie(Movies, 
+                     values=Movies['SubTheme'], 
+                     names=Movies.index,
+                     color_discrete_sequence = colours,
+                     labels={'SubTheme':'Movies'})
+             #hover_data=['lifeExp'], )
+Movies_CHART.update_traces(textposition='inside', textinfo='percent+label')
 
+Movies_CHART.update_layout(title_text='Minifigure Collection by Movie', title_x=0.488)
+#Pie_Sources.show()
 
 
 # STREAMLIT SETUP
@@ -99,7 +112,7 @@ def main():
         with col1:
             st.image("Obiwan.png",width = 200)
         with col2:
-            st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
+            st.plotly_chart(Movie_CHART, use_container_width=True)
         with col3:
             st.plotly_chart(Wishlist_TABLE, use_container_width=True)
     st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
