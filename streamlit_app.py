@@ -126,7 +126,14 @@ def main():
             st.plotly_chart(Wishlist_TABLE, use_container_width=True)
     st.sidebar.header("TEST")        
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
-    st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
+    
+    container4 = st.container()
+    col1, col2 = st.columns([1,2])
+    with container4:
+        with col1:
+            option = st.selectbox("Select Movie",Movies.index.tolist())
+        with col2:
+            st.plotly_chart(SW_Minifigs_TABLE[SW_Minifigs_TABLE.SubTheme == option], use_container_width=True)
 
     
 if __name__ == "__main__":
