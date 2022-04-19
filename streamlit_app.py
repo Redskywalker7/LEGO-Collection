@@ -42,7 +42,6 @@ def FilterMovie(option):
             title_text="Current LEGO Star Wars Minifigure Collection",
             title_x=0.5
         )
-    return SW_Minifigs_TABLE
     
 
 # DATAFRAMES
@@ -160,6 +159,7 @@ def main():
     with container4:
         with col1:
             option = st.selectbox("Select Movie",['All Movies'] + Movies.index.tolist())
+            FilterMovie(option)
         with col2:
             st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
 
