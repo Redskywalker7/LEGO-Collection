@@ -60,7 +60,7 @@ Wishlist_TABLE.update_layout(
 
 # Owned Minifigures Table
 SW_Minifigs_TABLE = go.Figure(data=[go.Table(
-    columnwidth = 1,
+    columnwidth = [3,1],
     header=dict(values=("<b>Character</b>","<b>Set Number</b>"),
                 align='center'),
     cells=dict(values=[SW_Minifigs['Name'],SW_Minifigs['Set Number']],
@@ -122,10 +122,8 @@ def main():
             st.plotly_chart(Movies_CHART, use_container_width=True)
         with col3:
             st.plotly_chart(Wishlist_TABLE, use_container_width=True)
-    st.plotly_chart(Table_Sets, use_container_width=True)
-            
+    st.sidebar.header("TEST")        
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
-    st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
     st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
 
     
