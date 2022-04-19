@@ -75,10 +75,18 @@ def main():
             st.image('Aayla.png')  
     
     container2 = st.container()
-    col1, col2, col3= st.columns([1,1,1])
+    col1, col2, col3= st.columns([1,1])
     with container2:
         with col1:
-            st.image("Obiwan.png",width = 220)
+            st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
+        with col2:
+            st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
+    
+    container3 = st.container()
+    col1, col2, col3= st.columns([1,1,1])
+    with container3:
+        with col1:
+            st.image("Obiwan.png",width = 200)
         with col2:
             st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
         with col3:
