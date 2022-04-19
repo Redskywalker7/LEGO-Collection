@@ -107,7 +107,7 @@ def main():
         
     
     container3 = st.container()
-    col1, col2, col3= st.columns([1,1,2])
+    col1, col2, col3= st.columns([1,2,2])
     with container3:
         with col1:
             st.image("Obiwan.png",width = 200)
