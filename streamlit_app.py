@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[44]:
-
-
+#LIBRARIES
 import pandas as pd
 import dash
 from dash import dcc
@@ -13,7 +11,7 @@ import plotly.graph_objects as go
 import streamlit as st
 #from datetime import datetime, timedelta, date
 
-
+# FUNCTIONS
 def Dollar_Format(x):
   return "${:,.2f}".format(x)
 
@@ -54,8 +52,6 @@ Wishlist_TABLE = go.Figure(data=[go.Table(
 #CHARTS
 
 
-# In[49]:
-
 
 # STREAMLIT SETUP
 st.set_page_config(
@@ -79,11 +75,13 @@ def main():
             st.image('Aayla.png')  
     
     container2 = st.container()
-    col1, col2= st.columns([1,1])
+    col1, col2, col3= st.columns([1,1])
     with container2:
         with col1:
-            st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
+            st.image("Obi Wan.png")
         with col2:
+            st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
+        with col3:
             st.plotly_chart(Wishlist_TABLE, use_container_width=True)
             
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
