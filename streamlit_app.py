@@ -14,6 +14,9 @@ import streamlit as st
 #from datetime import datetime, timedelta, date
 
 
+def Dollar_Format(x):
+  return "${:,.2f}".format(x)
+
 # In[45]:
 
 
@@ -27,6 +30,8 @@ minifigs = pd.read_csv("Rebrickable/minifigs.csv")
 
 # In[46]:
 
+Wishlist_Value = Wishlist['Brickeconomy Value'].sum()
+Wishlist_Value
 
 Sets.head(5)
 
@@ -83,6 +88,15 @@ def main():
             st.title("LEGO Star Wars Analysis")
         with col3:
             st.image('Aayla.png')  
+    
+    container2 = st.container()
+    col1= st.columns([1,1])
+    with container2:
+        with col1:
+            st.metric(label="Value of Wishlist",Dollar_Format(Wishlist_Value))
+        with col1:
+            st.image('logo.png')
+        Dollar_Format(x)
             
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
