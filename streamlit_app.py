@@ -54,10 +54,8 @@ Wishlist_TABLE = go.Figure(data=[go.Table(
 SW_Minifigs_TABLE = go.Figure(data=[go.Table(
     columnwidth = [3,1],
     header=dict(values=("<b>Character</b>"),
-                #fill_color=colours[0],
                 align='center'),
-    cells=dict(values=[SW_Minifigs['Name'],
-               #fill_color=colours[1],
+    cells=dict(values=SW_Minifigs['Name'],
                align='center')
 ])
 
