@@ -107,7 +107,7 @@ def main():
         with col3:
             st.metric(label="Wishlist Count",value=Wish_Count)
         with col4:
-            st.write(label=print("Most Expensive Wishlist Minifigure"+ "\n" + Wishlist['Name'][maxIndex]  + "\n" + " (" + str(Wishlist['Brickeconomy Value'][maxIndex]) + ")"))
+            st.metric(label="Most Expensive Wishlist Minifigure",value= Wishlist['Name'][maxIndex])
         
     
     container3 = st.container()
