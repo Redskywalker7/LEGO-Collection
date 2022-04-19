@@ -104,7 +104,7 @@ def main():
         with col2:
             st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
         with col3:
-            st.metric(label="Wishlist Count",value=Wish_Count))
+            st.metric(label="Wishlist Count",value=Wish_Count)
         
     
     container3 = st.container()
