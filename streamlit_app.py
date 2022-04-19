@@ -161,7 +161,7 @@ def main():
         with col1:
             option = st.selectbox("Select Movie",['All Movies'] + Movies.index.tolist())
         with col2:
-            st.write(FilteredMovie(option), use_container_width=True)
+            st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
 
     
 if __name__ == "__main__":
