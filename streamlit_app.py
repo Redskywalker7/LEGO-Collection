@@ -93,7 +93,7 @@ def main():
     col1= st.columns([1,1])
     with container2:
         with col1:
-            st.metric(label="Value of Wishlist",Dollar_Format(Wishlist_Value))
+            st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
         with col1:
             st.image('logo.png')
         Dollar_Format(x)
