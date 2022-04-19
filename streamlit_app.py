@@ -30,7 +30,7 @@ def FilterMovie(option):
             title_text="Current LEGO Star Wars Minifigure Collection",
             title_x=0.5
         )
-        return SW_Minifigs_TABLE
+        SW_Minifigs_TABLE
     else:
         SW_Minifigs_TABLE = go.Figure(data=[go.Table(
             columnwidth = [1,3,2],
@@ -43,7 +43,7 @@ def FilterMovie(option):
             title_text="Current LEGO Star Wars Minifigure Collection",
             title_x=0.5
         )
-        return SW_Minifigs_TABLE
+        SW_Minifigs_TABLE
     
 
 # DATAFRAMES
