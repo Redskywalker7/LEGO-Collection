@@ -90,13 +90,12 @@ def main():
             st.image('Aayla.png')  
     
     container2 = st.container()
-    col1= st.columns([1,1])
+    col1, col2= st.columns([1,1])
     with container2:
         with col1:
             st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
-        with col1:
+        with col2:
             st.image('logo.png')
-        Dollar_Format(x)
             
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
