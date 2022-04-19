@@ -107,7 +107,7 @@ def main():
         with col3:
             st.metric(label="Wishlist Count",value=Wish_Count)
         with col4:
-            st.metric(label="Most Expensive Wishlist Minifigure",value= Wishlist['Name'][maxIndex])
+            st.metric(label="Most Expensive Wishlist Minifigure",value= Wishlist['Name'][maxIndex] + "hello")
         
     
     container3 = st.container()
