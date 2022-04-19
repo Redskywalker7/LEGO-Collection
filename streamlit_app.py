@@ -26,7 +26,7 @@ main_sets = pd.read_csv("Rebrickable/sets.csv")
 my_sets = pd.read_csv("Rebrickable/My_Collection.csv")
 my_minifigs = pd.read_csv("Rebrickable/My Minifigs.csv")
 minifigs = pd.read_csv("Rebrickable/minifigs.csv")
-
+Wishlist = pd.read_csv("Rebrickable/minifig wishlist.csv")
 
 # In[46]:
 
