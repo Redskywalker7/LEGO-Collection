@@ -36,7 +36,7 @@ Table_Sets = go.Figure(data=[go.Table(
     header=dict(values=("<b>Set Number</b>","<b>Set Name</b>","<b>Theme</b>","<b>Type</b>","<b>Acquisition</b>","<b>State</b>"),
                 #fill_color=colours[0],
                 align='center'),
-    cells=dict(values=[Sets['Set Number'],Sets['Set Name'],Sets[Sets.Theme == 'Star Wars']['Theme'],Sets['Type'],Sets.Acquisition, Sets['State']],
+    cells=dict(values=[Sets['Set Number'],Sets['Set Name'],Sets['Theme'],Sets['Type'],Sets.Acquisition, Sets['State']],
                #fill_color=colours[1],
                align=['center','left','center','center','center','center']))
 ])
