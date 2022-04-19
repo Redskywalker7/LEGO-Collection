@@ -58,7 +58,7 @@ SW_Minifigs_TABLE = go.Figure(data=[go.Table(
                 align='center'),
     cells=dict(values=[SW_Minifigs['Name'],
                #fill_color=colours[1],
-               align=['center']))
+               align='center')
 ])
 
 #CHARTS
