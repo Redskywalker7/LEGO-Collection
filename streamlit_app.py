@@ -17,9 +17,7 @@ import streamlit as st
 def Dollar_Format(x):
   return "${:,.2f}".format(x)
 
-# In[45]:
-
-
+# DATAFRAMES
 Sets = pd.read_csv("LEGO Sets.csv")
 themes = pd.read_csv("Rebrickable/themes.csv")
 main_sets = pd.read_csv("Rebrickable/sets.csv")
@@ -28,19 +26,17 @@ my_minifigs = pd.read_csv("Rebrickable/My Minifigs.csv")
 minifigs = pd.read_csv("Rebrickable/minifigs.csv")
 Wishlist = pd.read_csv("Rebrickable/Minifig Wishlist.csv")
 
-# In[46]:
-
+#CALCULATIONS
 Wishlist_Value = Wishlist['Brickeconomy Value'].sum()
 
-# In[47]:
-
+#TABLES
 # Main Set List Table
 Table_Sets = go.Figure(data=[go.Table(
     columnwidth = [15,35,25,10,10,15],
     header=dict(values=("<b>Set Number</b>","<b>Set Name</b>","<b>Theme</b>","<b>Type</b>","<b>Acquisition</b>","<b>State</b>"),
                 #fill_color=colours[0],
                 align='center'),
-    cells=dict(values=[Sets['Set Number'],Sets['Set Name'],Sets['Theme'],Sets['Type'],Sets.Acquisition, Sets['State']],
+    cells=dict(values=[Sets['Set Number'],Sets['Set Name'],Sets[Sets.Theme == 'Star Wars']['Theme'],Sets['Type'],Sets.Acquisition, Sets['State']],
                #fill_color=colours[1],
                align=['center','left','center','center','center','center']))
 ])
@@ -55,27 +51,13 @@ Wishlist_TABLE = go.Figure(data=[go.Table(
                align=['center']))
 ])
 
-
-Table_Sets.update_layout(margin = dict(l=30,r=10,b=40,t=20))
-#Table_Sold.show()
-
-# Pie Chart of New/Sealed Sets
-State_Pie = px.pie(Sets, 
-                     values='State', 
-                     #names=Sources_Count.index,
-                     #color_discrete_sequence = colours,
-                     labels={'State':'Condition of Set'})
-             #hover_data=['lifeExp'], )
-State_Pie.update_traces(textposition='inside', textinfo='percent+label')
-
-State_Pie.update_layout(title_text='Set Conditions', title_x=0.488)
-#Pie_Sources.show()
+#CHARTS
 
 
 # In[49]:
 
 
-# Streamlit Setup
+# STREAMLIT SETUP
 st.set_page_config(
     page_title="LEGO Star Wars",
     layout="wide",
