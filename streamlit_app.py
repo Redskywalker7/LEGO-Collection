@@ -115,11 +115,11 @@ def main():
             st.plotly_chart(Movies_CHART, use_container_width=True)
         with col3:
             st.plotly_chart(Wishlist_TABLE, use_container_width=True)
-    st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
+    st.plotly_chart(Table_Sets, use_container_width=True)
             
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
-    st.plotly_chart(Table_Sets, use_container_width=True)
+    st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
 
     
 if __name__ == "__main__":
