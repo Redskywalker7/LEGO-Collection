@@ -16,32 +16,32 @@ def Dollar_Format(x):
   return "${:,.2f}".format(x)
 colours = ( "cadetblue", "turquoise", "skyblue",
           "lightsteelblue","azure","teal")
-def FilterMovie(option):
-    if(option != 'All Movies'):
-        Filtered = SW_Minifigs[SW_Minifigs['SubTheme'] == option]
-        SW_Minifigs_TABLE = go.Figure(data=[go.Table(
-            columnwidth = [1,3,2],
-            header=dict(values=("<b>Set Number</b>","<b>Character</b>","<b>Movie</b>"),
-                        align='center'),
-            cells=dict(values=[Filtered['Set Number'],Filtered['Name'],Filtered['SubTheme']],
-                       align='center')
-        )])
-        SW_Minifigs_TABLE.update_layout(
-            title_text="Current LEGO Star Wars Minifigure Collection",
-            title_x=0.5
-        )
-    else:
-        SW_Minifigs_TABLE = go.Figure(data=[go.Table(
-            columnwidth = [1,3,2],
-            header=dict(values=("<b>Set Number</b>","<b>Character</b>","<b>Movie</b>"),
-                        align='center'),
-            cells=dict(values=[SW_Minifigs['Set Number'],SW_Minifigs['Name'],SW_Minifigs['SubTheme']],
-                       align='center')
-        )])
-        SW_Minifigs_TABLE.update_layout(
-            title_text="Current LEGO Star Wars Minifigure Collection",
-            title_x=0.5
-        )
+#def FilterMovie(option):
+if(option != 'All Movies'):
+    Filtered = SW_Minifigs[SW_Minifigs['SubTheme'] == option]
+    SW_Minifigs_TABLE = go.Figure(data=[go.Table(
+        columnwidth = [1,3,2],
+        header=dict(values=("<b>Set Number</b>","<b>Character</b>","<b>Movie</b>"),
+                    align='center'),
+        cells=dict(values=[Filtered['Set Number'],Filtered['Name'],Filtered['SubTheme']],
+                   align='center')
+    )])
+    SW_Minifigs_TABLE.update_layout(
+        title_text="Current LEGO Star Wars Minifigure Collection",
+        title_x=0.5
+    )
+else:
+    SW_Minifigs_TABLE = go.Figure(data=[go.Table(
+        columnwidth = [1,3,2],
+        header=dict(values=("<b>Set Number</b>","<b>Character</b>","<b>Movie</b>"),
+                    align='center'),
+        cells=dict(values=[SW_Minifigs['Set Number'],SW_Minifigs['Name'],SW_Minifigs['SubTheme']],
+                   align='center')
+    )])
+    SW_Minifigs_TABLE.update_layout(
+        title_text="Current LEGO Star Wars Minifigure Collection",
+        title_x=0.5
+    )
     
 
 # DATAFRAMES
