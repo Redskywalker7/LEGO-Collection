@@ -34,6 +34,7 @@ SW_Minifigs = my_minifigs[my_minifigs.Theme == 'Star Wars']
 #CALCULATIONS
 Wishlist_Value = Wishlist['Brickeconomy Value'].sum()
 Movies = pd.DataFrame(my_minifigs['SubTheme'].value_counts())
+Wish_Count = len(Wishlist)
 
 #TABLES
 # Main Set List Table
@@ -96,12 +97,14 @@ def main():
             st.image('Pictures/Aayla.png')  
     
     container2 = st.container()
-    col1, col2 = st.columns([1,1])
+    col1, col2, col3 = st.columns([1,1,1])
     with container2:
         with col1:
             st.metric(label="Collection Count",value=len(my_minifigs))
         with col2:
             st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
+        with col3:
+            st.metric(label="Wishlist Count",value=Wish_Count))
         
     
     container3 = st.container()
