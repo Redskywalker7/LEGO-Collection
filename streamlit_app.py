@@ -24,6 +24,7 @@ my_minifigs = pd.read_csv("Rebrickable/My Minifigs.csv")
 minifigs = pd.read_csv("Rebrickable/minifigs.csv")
 Wishlist = pd.read_csv("Rebrickable/Minifig Wishlist.csv")
 Star_Wars = Sets[Sets.Theme == 'Star Wars']
+SW_Minifigs = my_minifigs[my_minifigs.Theme == 'Star Wars']
 
 #CALCULATIONS
 Wishlist_Value = Wishlist['Brickeconomy Value'].sum()
@@ -46,6 +47,16 @@ Wishlist_TABLE = go.Figure(data=[go.Table(
                 #fill_color=colours[0],
                 align='center'),
     cells=dict(values=[Wishlist['Name'],Wishlist['Brickeconomy Value']],
+               #fill_color=colours[1],
+               align=['center']))
+])
+# Owned Minifigures Table
+SW_Minifigs_TABLE = go.Figure(data=[go.Table(
+    columnwidth = [3,1],
+    header=dict(values=("<b>Character</b>","<b>Brickeconomy Value</b>"),
+                #fill_color=colours[0],
+                align='center'),
+    cells=dict(values=[SW_Minifigs['Name'],SW_Minifigs['Brickeconomy Value']],
                #fill_color=colours[1],
                align=['center']))
 ])
@@ -92,6 +103,7 @@ def main():
             st.metric(label="Value of Wishlist",value=Dollar_Format(Wishlist_Value))
         with col3:
             st.plotly_chart(Wishlist_TABLE, use_container_width=True)
+    st.plotly_chart(SW_Minifigs_TABLE, use_container_width=True)
             
     st.sidebar.image('Characters/sw0833.jpg', use_column_width=True)
     st.sidebar.image('Minifigs/sw0833.png', use_column_width=True)
