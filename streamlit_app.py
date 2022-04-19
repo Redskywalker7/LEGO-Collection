@@ -18,6 +18,11 @@ import streamlit as st
 
 
 Sets = pd.read_csv("LEGO Sets.csv")
+themes = pd.read_csv("Rebrickable/themes.csv")
+main_sets = pd.read_csv("Rebrickable/sets.csv")
+my_sets = pd.read_csv("Rebrickable/My_Collection.csv")
+my_minifigs = pd.read_csv("Rebrickable/My Minifigs.csv")
+minifigs = pd.read_csv("Rebrickable/minifigs.csv")
 
 
 # In[46]:
