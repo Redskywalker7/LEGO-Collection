@@ -3,13 +3,13 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 # Load in datasets
-sets = pd.read_csv("Rebrickable\sets.csv").rename(columns={'name':'Set Name'})
-themes = pd.read_csv("Rebrickable\themes.csv").rename(columns={'name':'Theme Name'})
-minifigs = pd.read_csv("Rebrickable\minifigs.csv")
-minifigs_inv = pd.read_csv("Rebrickable\inventory_minifigs.csv")
-inventories = pd.read_csv("Rebrickable\inventories.csv")
-inventory_minifigs = pd.read_csv("Rebrickable\inventory_minifigs.csv")
-Inventory = pd.read_csv("Rebrickable\My_Collection.csv")
+sets = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\sets.csv").rename(columns={'name':'Set Name'})
+themes = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\themes.csv").rename(columns={'name':'Theme Name'})
+minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\minifigs.csv")
+minifigs_inv = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_minifigs.csv")
+inventories = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventories.csv")
+inventory_minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_minifigs.csv")
+Inventory = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\My_Collection.csv")
 
 # Join my Inventory to Rebrickable Database
 My_sets = Inventory.merge(sets,left_on ='Set Number',right_on = 'set_num',how = 'inner')
@@ -24,3 +24,21 @@ My_Minifigs = inventory_minifigs.merge(the_inventories,left_on ='inventory_id',r
 My_Minifigs = My_Minifigs.merge(minifigs,left_on ='fig_num',right_on = 'fig_num',how = 'inner')
 My_Minifigs = My_Minifigs[['fig_num','name', 'quantity',
        'Theme']].rename(columns={'fig_num':"Rebrickable ID",'name':'Name', 'quantity':'Quantity'})
+
+# Test sets or Minifigs
+Pod = 'https://www.brickeconomy.com/set/75258-1/lego-star-wars-anakins-podracer-20th-anniversary-edition'
+Falcon = 'https://www.brickeconomy.com/set/75192-1/lego-star-wars-millennium-falcon'
+Looney = 'https://www.brickeconomy.com/set/71030-3/lego-minifigure-series-looney-tunes-wile-e-coyote'
+Queen = 'https://www.brickeconomy.com/minifig/sw0387/queen-amidala'
+
+# Determine if set or not and retired or not, then scrape value
+webpage = requests.get(Queen)
+soup = bs(webpage.content,"html.parser")
+if soup.find_all("div", {"class": "col-xs-7"})[7].string == "Retired":
+    Value = soup.find('b').string
+elif soup.find_all('h4')[8].string == 'Minifig Details':
+    Value = soup.find('b').string
+else:
+    Value = soup.find_all("div", {"class": "col-xs-7"})[14].string
+Value
+
