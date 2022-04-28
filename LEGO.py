@@ -5,8 +5,15 @@ from bs4 import BeautifulSoup as bs
 
 
 # To DO:
+# Create function to search for all minifigs in a set
 # Create .h file for Functions as a test
 # Create conversion table for harry potter subthemes
+# Schedule Early morning github update of set and minifig values
+# Append Loose minifigures and loose pieces to dataframes
+
+# App Ideas:
+# Metric with delta on it to show how value has exceeded cost
+# Checkboxes to select minifigs I want to keep
 
 
 # Function to determine if set or not and retired or not, then scrape value
@@ -38,6 +45,7 @@ minifigs_inv = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_m
 inventories = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventories.csv")
 inventory_minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_minifigs.csv")
 Inventory = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\My_Collection.csv")
+Wishlist = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\Minifig Wishlist.csv")
 
 # Join my Inventory to Rebrickable Database
 My_sets = Inventory.merge(sets,left_on ='Set Number',right_on = 'set_num',how = 'inner')
@@ -52,8 +60,11 @@ My_Minifigs = inventory_minifigs.merge(the_inventories,left_on ='inventory_id',r
 My_Minifigs = My_Minifigs.merge(minifigs,left_on ='fig_num',right_on = 'fig_num',how = 'inner')
 My_Minifigs = My_Minifigs[['fig_num','name', 'quantity',
        'Theme']].rename(columns={'fig_num':"Rebrickable ID",'name':'Name', 'quantity':'Quantity'})
+My_Minifigs['Value'] = 0.0
 
+# Loop to populate My_Minifigs with brickeconomy values 
+for x in range(0,len(My_Minifigs)-1):
+    fig = (My_Minifigs['Rebrickable ID'][x])
+    My_Minifigs['Value'][x] = float(Lego_Value('https://www.brickeconomy.com/minifig/'+Bricklink_ID(fig)).replace('$',''))
 
-# Get Minifig Value from table
-Lego_Value('https://www.brickeconomy.com/minifig/'+Bricklink_ID(My_Minifigs['Rebrickable ID'][35]))
-
+My_Minifigs
