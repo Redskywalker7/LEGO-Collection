@@ -65,9 +65,11 @@ def Set_Minifig_Values(set_num):
             set['Bricklink ID'][x] += Bricklink_ID(set['Rebrickable ID'][x])  
     url = set_link(set_num)
     webpage = requests.get(url)
-    soup = bs(webpage.content,"html.parser")   
-    for x in range(0,len(set['Bricklink ID'])):
-        fig_num = soup.find_all("div", {"class": "setminifigpanel-number"})[x].string
+    soup = bs(webpage.content,"html.parser")
+    list_items = soup.find_all("div", {"class": "setminifigpanel-number"})   
+    for x in range(0,len(list_items)):
+        string = str(soup.find_all("div", {"class": "setminifigpanel-number"})[x])
+        fig_num = string[string.find("<span>")+6:string.find("</s")]
         val_link = soup.find_all("div", {"class": "setminifigpanel-value"})[x]
         fig_val = float(str(val_link)[int(str(val_link).find("$"))+1:int(str(val_link).find("</div>"))])
         if fig_num in list(set['Bricklink ID']):
