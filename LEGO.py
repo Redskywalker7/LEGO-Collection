@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 import pandas as pd
 from pyparsing import lineEnd
 import requests
@@ -26,7 +27,8 @@ def set_link(set_num):
     return url 
 
 # Function to determine if set or not and retired or not, then scrape value
-def Lego_Value(url):
+def Lego_Value(set_num):
+    url = set_link(set_num)
     webpage = requests.get(url)
     soup = bs(webpage.content,"html.parser")
     if url[url.find('m/')+2:url.find('m/')+9] == 'minifig':
@@ -87,6 +89,7 @@ inventories = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventories.
 inventory_minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_minifigs.csv")
 Inventory = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\My_Collection.csv")
 Wishlist = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\Minifig Wishlist.csv")
+Wishlist['Set Number'] = Wishlist['Set Number'].fillna(0).astype(int)
 
 # Join my Inventory to Rebrickable Database
 My_sets = Inventory.merge(sets,left_on ='Set Number',right_on = 'set_num',how = 'inner')
@@ -118,11 +121,18 @@ My_Minifigs['Value'] = 0.0
 
 
 # Tests
-Lego_Value('https://www.brickeconomy.com/minifig/sw0485')
-Lego_Value('https://www.brickeconomy.com/set/75020-1/lego-star-wars-jabbas-sail-barge')
+#Lego_Value('https://www.brickeconomy.com/minifig/sw0485')
+#Lego_Value('https://www.brickeconomy.com/set/75020-1/lego-star-wars-jabbas-sail-barge')
 
-set_link(9516)
-Set_Minifig_Values(75020)
+set_val = Set_Minifig_Values(9516)
+no_fig_val = 150
+kept_val = 48+58
+minifigs_val = 0.0
 
-Minifigs_Search(75020)
-Minifigs_Search(9499)
+#Calculate 
+round((set_val.Quantity * set_val.Value).sum(0),2)
+
+Wishlist['Set Number'].value_counts()
+
+Set_Minifig_Values(75206)
+Lego_Value(75206)
