@@ -2,6 +2,7 @@ from multiprocessing.sharedctypes import Value
 import pandas as pd
 from pyparsing import lineEnd
 import requests
+import time
 from bs4 import BeautifulSoup as bs
 
 # To DO:
@@ -18,17 +19,20 @@ from bs4 import BeautifulSoup as bs
 
 
 # Function to generate Brickeconomy URL for set
-def set_link(set_num):
-    set_num = str(set_num)+"-1"
+def Generate_link(set_num):
     setslist = sets.merge(themes,left_on ='theme_id',right_on = 'id',how = 'inner')
-    theme_ = list(setslist[setslist.set_num == set_num]['Theme Name'])[0].replace(" ","-").lower()
-    name_ = list(setslist[setslist.set_num == set_num]['Set Name'])[0].replace(" ","-").lower()
-    url = "https://www.brickeconomy.com/set/" + set_num + "/lego-" + theme_ + "-" + name_
+    if type(set_num) == str:
+        url = "https://www.brickeconomy.com/minifig/" + set_num
+    else:
+        set_num = str(set_num)+"-1"
+        theme_ = list(setslist[setslist.set_num == set_num]['Theme Name'])[0].replace(" ","-").lower()
+        name_ = list(setslist[setslist.set_num == set_num]['Set Name'])[0].replace(" ","-").lower()
+        url = "https://www.brickeconomy.com/set/" + set_num + "/lego-" + theme_ + "-" + name_
     return url 
 
 # Function to determine if set or not and retired or not, then scrape value
 def Lego_Value(set_num):
-    url = set_link(set_num)
+    url = Generate_link(set_num)
     webpage = requests.get(url)
     soup = bs(webpage.content,"html.parser")
     if url[url.find('m/')+2:url.find('m/')+9] == 'minifig':
@@ -65,7 +69,7 @@ def Set_Minifig_Values(set_num):
     for x in range(0,len(set['Rebrickable ID'])):
         if set['Bricklink ID'][x] == '':
             set['Bricklink ID'][x] += Bricklink_ID(set['Rebrickable ID'][x])  
-    url = set_link(set_num)
+    url = Generate_link(set_num)
     webpage = requests.get(url)
     soup = bs(webpage.content,"html.parser")
     list_items = soup.find_all("div", {"class": "setminifigpanel-number"})   
@@ -114,25 +118,24 @@ My_Minifigs = My_Minifigs[['fig_num','name', 'quantity',
        'Theme']].rename(columns={'fig_num':"Rebrickable ID",'name':'Name', 'quantity':'Quantity'})
 My_Minifigs['Value'] = 0.0
 
-# Loop to populate My_Minifigs with brickeconomy values 
-#for x in range(0,len(My_Minifigs)-1):
-#    fig = (My_Minifigs['Rebrickable ID'][x])
-#    My_Minifigs['Value'][x] = float(Lego_Value('https://www.brickeconomy.com/minifig/'+Bricklink_ID(fig)).replace('$',''))
-
-
 # Tests
-#Lego_Value('https://www.brickeconomy.com/minifig/sw0485')
-#Lego_Value('https://www.brickeconomy.com/set/75020-1/lego-star-wars-jabbas-sail-barge')
-
-set_val = Set_Minifig_Values(9516)
+Set_Minifig_Values(9516)
 no_fig_val = 150
-kept_val = 48+58
-minifigs_val = 0.0
+kept_val = 48.4+79.5
+price = 275 
+minifigs_val = round((set_val.Quantity * set_val.Value).sum(0),2)
 
-#Calculate 
-round((set_val.Quantity * set_val.Value).sum(0),2)
+price + kept_val - ((no_fig_val + minifigs_val)*.85)
 
 Wishlist['Set Number'].value_counts()
 
 Set_Minifig_Values(75206)
 Lego_Value(75206)
+
+# Update Values of Current Minifigure Collection
+for x in range(0,len(My_Minifigs)):
+    wait_time = time.time()%10+time.time()%4+1
+    fig = (Bricklink_ID(My_Minifigs['Rebrickable ID'][x]))
+    My_Minifigs['Value'][x] = Lego_Value(fig)
+    time.sleep(wait_time)
+
