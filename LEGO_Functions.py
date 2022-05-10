@@ -49,7 +49,8 @@ def Minifigs_Search(set_num):
 # Function to find the value of all the minifigures in a set
 def Set_Minifig_Values(set_num):
     set = Minifigs_Search(set_num)    
-    set = set.reset_index()    
+    set = set.reset_index()
+    global set_val     
     for x in range(0,len(set['Rebrickable ID'])):
         if set['Bricklink ID'][x] == '':
             set['Bricklink ID'][x] += Bricklink_ID(set['Rebrickable ID'][x])  
@@ -65,6 +66,11 @@ def Set_Minifig_Values(set_num):
         if fig_num in list(set['Bricklink ID']):
             indx = list(set['Bricklink ID']).index(fig_num) # Problem here. ValueError: None is not in list
             set['Value'][indx] = fig_val
+    if soup.find_all("div", {"class": "col-xs-7"})[7].string == "Retired":
+        Value = soup.find('b').string
+    else:
+        Value = soup.find_all("div", {"class": "col-xs-7"})[14].string
+    set_val =  float(str(Value).replace('$',''))
     return set
 
 # Update Values of Current Minifigure Collection
