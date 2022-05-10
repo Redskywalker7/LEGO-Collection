@@ -1,23 +1,8 @@
-from multiprocessing.sharedctypes import Value
-import pandas as pd
-from pyparsing import lineEnd
 import requests
 import time
 from bs4 import BeautifulSoup as bs
 import LEGO_Datasets as DS
-# To DO:
 
-# Create .h file for Functions as a test
-# Create conversion table for harry potter subthemes
-# Schedule Early morning github update of set and minifig values
-# Append Loose minifigures and loose pieces to dataframes
-# Instead of scraping each individual Minifigure Page, scrape all minifig values from set page
-
-# App Ideas:
-# Metric with delta on it to show how value has exceeded cost
-# Checkboxes to select minifigs I want to keep
-
-# Function to generate Brickeconomy URL for set
 def Generate_link(set_num):
     setslist = sets.merge(themes,left_on ='theme_id',right_on = 'id',how = 'inner')
     if type(set_num) == str:
@@ -40,7 +25,7 @@ def Lego_Value(set_num):
         Value = soup.find('b').string
     else:
         Value = soup.find_all("div", {"class": "col-xs-7"})[14].string
-    return Value
+    return float(str(Value).replace('$',''))
 
 # Function to get Bricklink ID from Rebrickable link
 def Bricklink_ID(Fig):
