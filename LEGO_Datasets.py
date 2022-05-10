@@ -1,11 +1,20 @@
-from multiprocessing.sharedctypes import Value
 import pandas as pd
-from pyparsing import lineEnd
-import requests
-import time
-from bs4 import BeautifulSoup as bs
 
+# To DO:
+
+# Create .h file for Functions as a test
+# Create conversion table for harry potter subthemes
+# Schedule Early morning github update of set and minifig values
+# Append Loose minifigures and loose pieces to dataframes
+# Instead of scraping each individual Minifigure Page, scrape all minifig values from set page
+
+# App Ideas:
+# Metric with delta on it to show how value has exceeded cost
+# Checkboxes to select minifigs I want to keep
+
+# Function to generate Brickeconomy URL for set
 # Load in datasets
+
 sets = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\sets.csv").rename(columns={'name':'Set Name'})
 themes = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\themes.csv").rename(columns={'name':'Theme Name'})
 minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\minifigs.csv")
