@@ -15,10 +15,10 @@ import pandas as pd
 # Function to generate Brickeconomy URL for set
 # Load in datasets
 
-sets = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\sets.csv").rename(columns={'name':'Set Name'})
-themes = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\themes.csv").rename(columns={'name':'Theme Name'})
-minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\minifigs.csv")
-minifigs_inv = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_minifigs.csv")
+sets = pd.read_csv("Rebrickable\sets.csv").rename(columns={'name':'Set Name'})
+themes = pd.read_csv("Rebrickable\themes.csv").rename(columns={'name':'Theme Name'})
+minifigs = pd.read_csv("Rebrickable\minifigs.csv")
+minifigs_inv = pd.read_csv("Rebrickable\inventory_minifigs.csv")
 inventories = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventories.csv")
 inventory_minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_minifigs.csv")
 Inventory = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\My_Collection.csv")
