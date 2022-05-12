@@ -27,7 +27,7 @@ st.set_page_config(
 
 def main():
     container1 = st.container()
-    col1, col2 = st.columns([5,5,20])
+    col1, col2, col3 = st.columns([5,5,20])
     with container1:
         with col1:
             st.image('Pictures/sw0833.png')
