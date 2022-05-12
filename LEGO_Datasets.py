@@ -18,7 +18,7 @@ import pandas as pd
 sets = pd.read_csv("Data/sets.csv").rename(columns={'name':'Set Name'})
 themes = pd.read_csv("Data/themes.csv").rename(columns={'name':'Theme Name'})
 minifigs = pd.read_csv("Data/minifigs.csv")
-minifigs_inv = pd.read_csv("Data/nventory_minifigs.csv")
+minifigs_inv = pd.read_csv("Data/inventory_minifigs.csv")
 inventories = pd.read_csv("Data/inventories.csv")
 inventory_minifigs = pd.read_csv("Data/inventory_minifigs.csv")
 Inventory = pd.read_csv("Data/My_Collection.csv")
