@@ -13,7 +13,7 @@ table = LF.Set_Minifig_Values(9516)
 #TABLES
 # Main Set List Table
 Set_Minifig_Values_Table = go.Figure(data=[go.Table(
-    columnwidth = [15,35,25,10,10,15],
+    columnwidth = [2,2,5,1,2],
     header=dict(values=("<b>Rebrickable ID</b>","<b>Bricklink ID</b>","<b>Minifig</b>","<b>Quantity</b>","<b>Value</b>"),
                 #fill_color=colours[0],
                 align='center'),
