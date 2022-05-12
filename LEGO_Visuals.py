@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 
 
 table = LF.Set_Minifig_Values(9516)
-table
+
 #TABLES
 # Main Set List Table
 Set_Minifig_Values_Table = go.Figure(data=[go.Table(
