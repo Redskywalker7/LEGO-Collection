@@ -33,7 +33,7 @@ def main():
             st.image('Pictures/sw0833.png')
         with col2:
             st.image('Pictures/Aayla.jpg')  
-
+LD.Wishlist['Name'][0]
   
 if __name__ == "__main__":
     main()
