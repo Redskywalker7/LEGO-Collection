@@ -15,14 +15,14 @@ import pandas as pd
 # Function to generate Brickeconomy URL for set
 # Load in datasets
 
-sets = pd.read_csv("Rebrickable\sets.csv").rename(columns={'name':'Set Name'})
-themes = pd.read_csv("Rebrickable\themes.csv").rename(columns={'name':'Theme Name'})
-minifigs = pd.read_csv("Rebrickable\minifigs.csv")
-minifigs_inv = pd.read_csv("Rebrickable\inventory_minifigs.csv")
-inventories = pd.read_csv("Rebrickable\inventories.csv")
-inventory_minifigs = pd.read_csv("Rebrickable\inventory_minifigs.csv")
-Inventory = pd.read_csv("Rebrickable\My_Collection.csv")
-Wishlist = pd.read_csv("Rebrickable\Minifig Wishlist.csv")
+sets = pd.read_csv("Data\sets.csv").rename(columns={'name':'Set Name'})
+themes = pd.read_csv("Data\themes.csv").rename(columns={'name':'Theme Name'})
+minifigs = pd.read_csv("Data\minifigs.csv")
+minifigs_inv = pd.read_csv("Data\inventory_minifigs.csv")
+inventories = pd.read_csv("Data\inventories.csv")
+inventory_minifigs = pd.read_csv("Data\inventory_minifigs.csv")
+Inventory = pd.read_csv("Data\My_Collection.csv")
+Wishlist = pd.read_csv("Data\Minifig Wishlist.csv")
 Wishlist['Set Number'] = Wishlist['Set Number'].fillna(0).astype(int)
 
 # Join my Inventory to Rebrickable Database
