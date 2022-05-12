@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup as bs
 import LEGO_Datasets as DS
 
 def Generate_link(set_num):
-    setslist = sets.merge(themes,left_on ='theme_id',right_on = 'id',how = 'inner')
+    setslist = DS.sets.merge(DS.themes,left_on ='theme_id',right_on = 'id',how = 'inner')
     if type(set_num) == str:
         url = "https://www.brickeconomy.com/minifig/" + set_num
     else:
@@ -39,7 +39,7 @@ def Bricklink_ID(Fig):
 # Function to return Minifigure Inventory from Set Number
 def Minifigs_Search(set_num):
     set_num = str(set_num)+"-1"
-    Minifig_Inventory = Minifig_Inventory1[Minifig_Inventory1['set_num'] == set_num]
+    Minifig_Inventory = DS.Minifig_Inventory1[DS.Minifig_Inventory1['set_num'] == set_num]
     Minifig_Inventory = Minifig_Inventory[Minifig_Inventory.version_y == 1]
     Minifig_Inventory = Minifig_Inventory[Minifig_Inventory.version_x == 1]
     Minifigures =  Minifig_Inventory[['fig_num','Bricklink ID','name','quantity']].rename(columns={'fig_num': 'Rebrickable ID','name':'Minifig','quantity':'Quantity'})
@@ -75,8 +75,10 @@ def Set_Minifig_Values(set_num):
 
 # Update Values of Current Minifigure Collection
 def Update_FigVals():
-    for x in range(0,len(My_Minifigs)):
+    for x in range(0,len(DS.My_Minifigs)):
         wait_time = time.time()%10+time.time()%4+1
         fig = (Bricklink_ID(DS.My_Minifigs['Rebrickable ID'][x]))
         DS.My_Minifigs['Value'][x] = Lego_Value(fig)
         time.sleep(wait_time)
+
+Lego_Value(9516)
