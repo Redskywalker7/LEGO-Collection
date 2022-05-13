@@ -23,13 +23,17 @@ def main():
 #            st.image('Pictures/Aayla.jpg')  
     #st.metric(label = "What are we getting here", value = choice)
     #st.plotly_chart(LV.tablefunc(choice),use_container_width=True) 
-    choice = '' 
+    choice = ''
+    set_val = 0 
     choice = st.text_input(label = "Enter set or minifigure ID",placeholder = '75020')
-    st.metric(label = "Hello there", value = choice)
-    st.text(choice)
-    st.text(type(choice))
-    #if len(choice) > 0:
-    #    st.plotly_chart(LV.tablefunc(choice),use_container_width=True)  
+    #st.metric(label = "Set Value", value = LF.set_val)
+    if len(choice) > 0:
+        table = LF.Set_Minifig_Values(choice)
+        set_table = LV.tablefunc(table)
+        st.metric(label = "Set Value", value = LF.set_val) 
+        st.metric(label = "Minifigs Total Value", value = ((table.Quantity*table.Value).sum())) 
+        st.plotly_chart(set_table,use_container_width=True) 
+        
     
   
 if __name__ == "__main__":
