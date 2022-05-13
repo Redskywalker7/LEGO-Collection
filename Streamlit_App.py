@@ -13,10 +13,20 @@ import plotly.graph_objects as go
 import streamlit as st
 
 # FUNCTIONS
+# Function to change floats to currency format
 def Dollar_Format(x):
   return "${:,.2f}".format(x)
 colours = ( "cadetblue", "turquoise", "skyblue",
           "lightsteelblue","azure","teal")
+
+# Function to test if variable is defined or not
+def testvar(Variable):
+    try:
+        Variable
+    except NameError:
+        False
+    else:
+        True
 
 # STREAMLIT SETUP
 st.set_page_config(
@@ -34,10 +44,12 @@ def main():
         with col2:
             st.image('Pictures/Aayla.jpg')  
             
-input = st.text_input(label = "Enter set or minifigure number")
-st.plotly_chart(LF.Set_Minifig_Values(input),use_container_width=True)
+choice = st.text_input(label = "Enter set or minifigure number")
+if testvar(choice) == True:
+    st.plotly_chart(LF.Set_Minifig_Values(choice),use_container_width=True)
   
 if __name__ == "__main__":
     main()
 
-str("Hello there")
+
+
