@@ -35,7 +35,7 @@ def main():
             st.image('Pictures/Aayla.jpg')  
             
 input = st.text_input(label = "Enter set or minifigure number")
-st.plotly_chart(LV.Set_Minifig_Values_Table,use_container_width=True)
+st.plotly_chart(LF.Set_Minifig_Values(input),use_container_width=True)
   
 if __name__ == "__main__":
     main()
