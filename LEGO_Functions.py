@@ -1,4 +1,3 @@
-from winreg import HKEY_LOCAL_MACHINE
 import requests
 import time
 from bs4 import BeautifulSoup as bs
@@ -82,13 +81,13 @@ def Update_FigVals():
         DS.My_Minifigs['Value'][x] = Lego_Value(fig)
         time.sleep(wait_time)
 
-# Change floats to currency format
+# Function to change floats to currency format
 def Dollar_Format(x):
   return "${:,.2f}".format(x)
 colours = ( "cadetblue", "turquoise", "skyblue",
           "lightsteelblue","azure","teal")
 
-# Test if variable is defined or not
+# Function to test if variable is defined or not
 def testvar(Variable):
     try:
         Variable
