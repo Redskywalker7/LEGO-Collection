@@ -5,7 +5,7 @@ import LEGO_Datasets as DS
 
 def Generate_link(set_num):
     setslist = DS.sets.merge(DS.themes,left_on ='theme_id',right_on = 'id',how = 'inner')
-    if type(set_num) == str:
+    if set_num[0] not in ('1','2','3','4','5','6','7','8','9'):
         url = "https://www.brickeconomy.com/minifig/" + set_num
     else:
         set_num = str(set_num)+"-1"
@@ -86,12 +86,3 @@ def Dollar_Format(x):
   return "${:,.2f}".format(x)
 colours = ( "cadetblue", "turquoise", "skyblue",
           "lightsteelblue","azure","teal")
-
-# Function to test if variable is defined or not
-def testvar(Variable):
-    try:
-        Variable
-    except NameError:
-        False
-    else:
-        True
