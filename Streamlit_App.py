@@ -34,6 +34,3 @@ def main():
   
 if __name__ == "__main__":
     main()
-
-thing = '752309'
-str(thing)
