@@ -44,7 +44,7 @@ def main():
         with col2:
             st.image('Pictures/Aayla.jpg')  
             
-choice = st.text_input(label = "Enter set or minifigure number")
+choice = st.text_input(label = "Enter set or minifigure number",use_container_width=False)
 if testvar(choice) == True:
     st.plotly_chart(LF.Set_Minifig_Values(choice),use_container_width=True)
   
