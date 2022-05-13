@@ -24,8 +24,7 @@ def main():
 choice = st.text_input(label = "Enter set or minifigure number")
 
 if LF.testvar(choice) == True:
-    LV.table_func(choice)
-    st.plotly_chart(LV.Set_Minifig_Values_Table,use_container_width=True)
+    st.plotly_chart(LV.tablefunc(75020),use_container_width=True)
   
 if __name__ == "__main__":
     main()
