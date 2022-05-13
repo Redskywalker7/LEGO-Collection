@@ -23,7 +23,7 @@ def main():
             
 choice = st.text_input(label = "Enter set or minifigure ID",placeholder = "75020")
 
-st.plotly_chart(LV.tablefunc(75020),use_container_width=True)
+st.plotly_chart(LV.tablefunc(choice),use_container_width=True)
   
 if __name__ == "__main__":
     main()
