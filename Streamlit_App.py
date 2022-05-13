@@ -13,20 +13,27 @@ st.set_page_config(
 )
 
 def main():
-    container1 = st.container()
-    col1, col2 = st.columns([5,5])
-    with container1:
-        with col1:
-            st.image('Pictures/sw0833.png')
-        with col2:
-            st.image('Pictures/Aayla.jpg')  
-            
-choice = st.text_input(label = "Enter set or minifigure ID",placeholder = "75020")
-
-st.plotly_chart(LV.tablefunc(75020),use_container_width=True)
+#    container1 = st.container()
+#    col1, col2 = st.columns([5,5])
+#    with container1:
+#        with col1:
+#            st.image('Pictures/sw0833.png')
+#
+#        with col2:
+#            st.image('Pictures/Aayla.jpg')  
+    #st.metric(label = "What are we getting here", value = choice)
+    #st.plotly_chart(LV.tablefunc(choice),use_container_width=True) 
+    choice = '' 
+    choice = st.text_input(label = "Enter set or minifigure ID",placeholder = '75020')
+    st.metric(label = "Hello there", value = choice)
+    st.text(choice)
+    st.text(type(choice))
+    #if len(choice) > 0:
+    #    st.plotly_chart(LV.tablefunc(choice),use_container_width=True)  
+    
   
 if __name__ == "__main__":
     main()
 
-
-
+thing = '752309'
+str(thing)
