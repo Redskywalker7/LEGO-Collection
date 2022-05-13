@@ -21,7 +21,7 @@ def main():
         with col2:
             st.image('Pictures/Aayla.jpg')  
             
-choice = st.text_input(label = "Enter set or minifigure number","75020")
+choice = st.text_input(label = "Enter set or minifigure number",placeholder = "75020")
 
 if LF.testvar(choice) == True:
     st.plotly_chart(LV.tablefunc(75020),use_container_width=True)
