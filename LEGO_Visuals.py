@@ -7,8 +7,9 @@ from dash import html
 import plotly.express as px
 import plotly.graph_objects as go
 
-
-table = LF.Set_Minifig_Values(9516)
+def table(set_num):
+    global table
+    table = LF.Set_Minifig_Values(set_num)
 
 #TABLES
 # Main Set List Table
