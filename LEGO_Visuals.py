@@ -7,8 +7,7 @@ from dash import html
 import plotly.express as px
 import plotly.graph_objects as go
 
-def tablefunc(set_num):
-    table = LF.Set_Minifig_Values(set_num)
+def tablefunc(table):
     Set_Minifig_Values_Table = go.Figure(data=[go.Table(
     columnwidth = [2,2,5,1,2],
     header=dict(values=("<b>Rebrickable ID</b>","<b>Bricklink ID</b>","<b>Minifig</b>","<b>Quantity</b>","<b>Value</b>"),
