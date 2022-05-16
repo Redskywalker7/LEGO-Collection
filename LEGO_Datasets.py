@@ -2,27 +2,24 @@ import pandas as pd
 
 # To DO:
 
-# Create .h file for Functions as a test
 # Create conversion table for harry potter subthemes
 # Schedule Early morning github update of set and minifig values
 # Append Loose minifigures and loose pieces to dataframes
-# Instead of scraping each individual Minifigure Page, scrape all minifig values from set page
 
 # App Ideas:
 # Metric with delta on it to show how value has exceeded cost
 # Checkboxes to select minifigs I want to keep
 
-# Function to generate Brickeconomy URL for set
 # Load in datasets
 
-sets = pd.read_csv("Data/sets.csv").rename(columns={'name':'Set Name'})
-themes = pd.read_csv("Data/themes.csv").rename(columns={'name':'Theme Name'})
-minifigs = pd.read_csv("Data/minifigs.csv")
-minifigs_inv = pd.read_csv("Data/inventory_minifigs.csv")
-inventories = pd.read_csv("Data/inventories.csv")
-inventory_minifigs = pd.read_csv("Data/inventory_minifigs.csv")
-Inventory = pd.read_csv("Data/My_Collection.csv")
-Wishlist = pd.read_csv("Data/Minifig Wishlist.csv")
+sets = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\sets.csv").rename(columns={'name':'Set Name'})
+themes = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\themes.csv").rename(columns={'name':'Theme Name'})
+minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\minifigs.csv")
+minifigs_inv = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_minifigs.csv")
+inventories = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventories.csv")
+inventory_minifigs = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\inventory_minifigs.csv")
+Inventory = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\My_Collection.csv")
+Wishlist = pd.read_csv(r"C:\Users\lukejo\Documents\Data\Practice\Minifig Wishlist.csv")
 Wishlist['Set Number'] = Wishlist['Set Number'].fillna(0).astype(int)
 
 # Join my Inventory to Rebrickable Database
