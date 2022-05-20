@@ -31,7 +31,7 @@ def main():
         table = LF.Set_Minifig_Values(choice)
         set_table = LV.tablefunc(table)
         Minifig_Values = (table.Quantity*table.Value).sum()
-        Set_Name = LD.setslist[LD.setslist['set_num'] == (str(choice)+"-1")]['Set Name'].item()
+        Set_Name = list(LD.setslist[LD.setslist['set_num'] == (str(choice)+"-1")]['Set Name'])[0]
         container1 = st.container()
         col1, col2, col3, col4  = st.columns([8,4,4,4])
         with container1:
