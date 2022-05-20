@@ -3,6 +3,7 @@ import time
 from bs4 import BeautifulSoup as bs
 import LEGO_Datasets as DS
 
+# Distinguish minifigs from sets and create Brickeconomy URL
 def Generate_link(set_num):
     setslist = DS.sets.merge(DS.themes,left_on ='theme_id',right_on = 'id',how = 'inner')
     if set_num[0] not in ('1','2','3','4','5','6','7','8','9'):
@@ -84,6 +85,8 @@ def Update_FigVals():
 # Function to change floats to currency format
 def Dollar_Format(x):
   return "${:,.2f}".format(x)
+
+# Colours Palette for use in visualizations  
 colours = ( "cadetblue", "turquoise", "skyblue",
           "lightsteelblue","azure","teal")
 
