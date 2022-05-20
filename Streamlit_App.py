@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import LEGO_Functions as LF
+import LEGO_Datasets as LD
 import LEGO_Visuals as LV
 import streamlit as st
 
@@ -29,13 +30,19 @@ def main():
     if len(choice) > 0:
         table = LF.Set_Minifig_Values(choice)
         set_table = LV.tablefunc(table)
+        Minifig_Values = (table.Quantity*table.Value).sum()
+        Set_Name = LD.setslist[LD.setslist['set_num'] == (str(choice)+"-1")]['Set Name'].item()
         container1 = st.container()
-        col1, col2 = st.columns([5,5])
+        col1, col2, col3, col4  = st.columns([8,4,4,4])
         with container1:
             with col1:
-                st.metric(label = "Set Value", value = LF.set_val)
+                st.metric(label = "Set Name", value = Set_Name)
             with col2:
-                st.metric(label = "Total Minifigs Value", value = round(((table.Quantity*table.Value).sum()),2))                
+                st.metric(label = "Set Value", value = LF.Dollar_Format(LF.set_val))
+            with col3:
+                st.metric(label = "Total Minifigs Value", value = LF.Dollar_Format(Minifig_Values))
+            with col4:
+                st.metric(label = "Set Value w/o Minifigs", value = LF.Dollar_Format(LF.set_val - Minifig_Values))             
         st.plotly_chart(set_table,use_container_width=True) 
             
     st.plotly_chart(LV.Wishlist_Table,use_container_width=True)  
