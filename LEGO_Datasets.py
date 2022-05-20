@@ -12,14 +12,14 @@ import pandas as pd
 
 # Load in datasets
 
-sets = pd.read_csv("Data\Practice\sets.csv").rename(columns={'name':'Set Name'})
-themes = pd.read_csv("Data\Practice\themes.csv").rename(columns={'name':'Theme Name'})
-minifigs = pd.read_csv("Data\Practice\minifigs.csv")
-minifigs_inv = pd.read_csv("Data\Practice\inventory_minifigs.csv")
-inventories = pd.read_csv("Data\Practice\inventories.csv")
-inventory_minifigs = pd.read_csv("Data\Practice\inventory_minifigs.csv")
-Inventory = pd.read_csv("Data\Practice\My_Collection.csv")
-Wishlist = pd.read_csv("Data\Practice\Minifig Wishlist.csv")
+sets = pd.read_csv("Data\sets.csv").rename(columns={'name':'Set Name'})
+themes = pd.read_csv("Data\themes.csv").rename(columns={'name':'Theme Name'})
+minifigs = pd.read_csv("Data\minifigs.csv")
+minifigs_inv = pd.read_csv("Data\inventory_minifigs.csv")
+inventories = pd.read_csv("Data\inventories.csv")
+inventory_minifigs = pd.read_csv("Data\inventory_minifigs.csv")
+Inventory = pd.read_csv("Data\My_Collection.csv")
+Wishlist = pd.read_csv("Data\Minifig Wishlist.csv")
 Wishlist['Set Number'] = Wishlist['Set Number'].fillna(0).astype(int)
 
 # Join my Inventory to Rebrickable Database
