@@ -107,5 +107,5 @@ def Update_Wishlist_Vals():
             wait_time = time.time()%10+time.time()%4+1
             DS.Wishlist['Minifig Value'][x] = Lego_Value(DS.Wishlist['Minifig Number'][x])
             time.sleep(wait_time)
-        DS.Wishlist.to_csv("Wishlist_with_vals.csv")
+        DS.Wishlist.to_csv("Data/Wishlist_with_vals.csv")
 
