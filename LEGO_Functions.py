@@ -1,5 +1,6 @@
 import requests
 import time
+import pandas as pd
 from bs4 import BeautifulSoup as bs
 import LEGO_Datasets as DS
 
@@ -95,4 +96,16 @@ def Dollar_Format(x):
 # Colours Palette for use in visualizations  
 colours = ( "cadetblue", "turquoise", "skyblue",
           "lightsteelblue","azure","teal")
+
+# Update values of each minifig in the wishlist
+def Update_Wishlist_Vals():
+    DS.Wishlist['Minifig Value'] = 0
+    for x in range(0,len(DS.Wishlist)):
+        if pd.isna(DS.Wishlist['Minifig Number'][x]) == True:
+            DS.Wishlist['Minifig Value'][x] = 0
+        else:
+            wait_time = time.time()%10+time.time()%4+1
+            DS.Wishlist['Minifig Value'][x] = Lego_Value(DS.Wishlist['Minifig Number'][x])
+            time.sleep(wait_time)
+        DS.Wishlist.to_csv("Wishlist_with_vals.csv")
 
