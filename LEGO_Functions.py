@@ -21,7 +21,13 @@ def Lego_Value(set_num):
     webpage = requests.get(url)
     soup = bs(webpage.content,"html.parser")
     if url[url.find('m/')+2:url.find('m/')+9] == 'minifig':
-        Value = soup.find_all("div", {"class": "col-xs-7"})[7].string
+        the_string = str(soup.find_all("div", {"class": "col-xs-7"}))
+        find1 = the_string.find('<b>')+4
+        find2 = the_string[find1:find1+10].find('</b>') + find1
+        if the_string[find1:find2] == '':
+            Value = 0
+        else: # If there is an error, the error will be here
+            Value = float(the_string[find1:find2])
     elif soup.find_all("div", {"class": "col-xs-7"})[7].string == "Retired":
         Value = soup.find('b').string
     else:
