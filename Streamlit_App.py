@@ -4,6 +4,7 @@
 import LEGO_Functions as LF
 import LEGO_Datasets as LD
 import LEGO_Visuals as LV
+import LEGO_Datasets as DS
 import streamlit as st
 
 # STREAMLIT SETUP
@@ -52,7 +53,7 @@ def main():
         with col6:
             st.metric(label = "Wishlist Minifigs", value = len(DS.Wishlist_with_vals['Minifig Value']))   
         with col7:
-            st.metric(label = "Unique Sets", value = len(DS.Wishlist['Set Number'].value_counts()))          
+            st.metric(label = "Unique Sets", value = len(DS.Wishlist['Set Number'].value_counts()))    
     st.plotly_chart(LV.Wishlist_Table,use_container_width=True)  
 
 if __name__ == "__main__":
