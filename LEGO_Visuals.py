@@ -19,7 +19,7 @@ def tablefunc(table):
     ])
     return Set_Minifig_Values_Table
 
-Wishlist_Table = Set_Minifig_Values_Table = go.Figure(data=[go.Table(
+Wishlist_Table = go.Figure(data=[go.Table(
     columnwidth = [2,5,2,2],
     header=dict(values=("<b>Bricklink ID</b>","<b>Minifigure</b>","<b>Contained Set</b>","<b>Value</b>"),
                 #fill_color=colours[0],
@@ -28,3 +28,4 @@ Wishlist_Table = Set_Minifig_Values_Table = go.Figure(data=[go.Table(
                #fill_color=colours[1],
                align=['left','left','center','center']))
     ])
+Wishlist_Table.update_layout(margin=dict(l=5,r=5,b=10,t=10))
