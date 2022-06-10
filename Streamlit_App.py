@@ -44,7 +44,15 @@ def main():
             with col4:
                 st.metric(label = "Set Value w/o Minifigs", value = LF.Dollar_Format(LF.set_val - Minifig_Values))             
         st.plotly_chart(set_table,use_container_width=True) 
-            
+    container2 = st.container()
+    col5, col6, col7  = st.columns([1,1,1])
+    with container2:
+        with col5:
+            st.metric(label = "Total Value of Wishlist", value = LF.Dollar_Format(sum(DS.Wishlist_with_vals['Minifig Value'])))
+        with col6:
+            st.metric(label = "Wishlist Minifigs", value = len(DS.Wishlist_with_vals['Minifig Value']))   
+        with col7:
+            st.metric(label = "Unique Sets", value = len(DS.Wishlist['Set Number'].value_counts()))          
     st.plotly_chart(LV.Wishlist_Table,use_container_width=True)  
 
 if __name__ == "__main__":
