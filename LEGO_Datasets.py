@@ -21,6 +21,7 @@ inventory_minifigs = pd.read_csv("Data/inventory_minifigs.csv")
 Inventory = pd.read_csv("Data/My_Collection.csv")
 Wishlist = pd.read_csv("Data/Minifig Wishlist.csv")
 Wishlist['Set Number'] = Wishlist['Set Number'].fillna(0).astype(int)
+Wishlist_with_vals = pd.read_csv("Data/Wishlist_with_vals.csv")
 
 # Join my Inventory to Rebrickable Database
 My_sets = Inventory.merge(sets,left_on ='Set Number',right_on = 'set_num',how = 'inner')
